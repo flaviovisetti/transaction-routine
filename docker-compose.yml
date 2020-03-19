@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres:11.7-alpine
+    ports:
+      - '5432:5432'
+    environment: 
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+  api:
+    build: .
+    command: go run main.go
+    volumes:
+      - .:/go/src/github.com/flaviovisetti/transaction-routine
+    ports:
+      - '8000:8000'
+    depends_on: 
+      - db
+    environment:
+      - POSTGRESQL_URL=postgres://postgres@db:5432/transaction_routiune?sslmode=disable
