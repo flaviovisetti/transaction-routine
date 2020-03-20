@@ -14,3 +14,13 @@ type Transaction struct {
 	Amount          float64   `gorm:"column:amount" json:"amount"`
 	EventDate       time.Time `gorm:"column:event_date" json:"event_date"`
 }
+
+// BeforeCreate validates amount and operation_type
+func (t *Transaction) BeforeCreate(scope *gorm.Scope) error {
+	if t.OperationTypeID != 4 {
+		scope.SetColumn("Amount", t.Amount*-1)
+	}
+
+	scope.SetColumn("EventDate", time.Now())
+	return nil
+}
