@@ -6,6 +6,7 @@ import (
 
 	"github.com/flaviovisetti/transaction-routine/controllers"
 	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
 )
 
 func main() {
