@@ -1,7 +1,9 @@
 package entity
 
+import "github.com/jinzhu/gorm"
+
 // OperationType represents an persist entity.
 type OperationType struct {
-	ID          int
-	Description string
+	gorm.Model
+	Description string `gorm:"column:description" json:"description"`
 }
