@@ -20,7 +20,7 @@ type Transaction struct {
 
 // BeforeCreate validates amount and operation_type
 func (t *Transaction) BeforeCreate(scope *gorm.Scope) error {
-	if t.OperationTypeID != 4 {
+	if t.Amount > 0 && t.OperationTypeID != 4 {
 		scope.SetColumn("Amount", t.Amount*-1)
 	}
 

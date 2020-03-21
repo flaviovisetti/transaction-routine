@@ -9,9 +9,10 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// CreateAccount endpoint responsible to receive account and create it
+// CreateAccount endpoint responsible to receive account and create
 func CreateAccount(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
 
 	var account entity.Account
 	json.NewDecoder(r.Body).Decode(&account)

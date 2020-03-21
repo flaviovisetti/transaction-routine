@@ -11,6 +11,7 @@ import (
 // CreateTransaction endpoint to create a new transaction
 func CreateTransaction(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
 
 	var transaction entity.Transaction
 	json.NewDecoder(r.Body).Decode(&transaction)
