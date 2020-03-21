@@ -1,9 +1,14 @@
 package entity
 
-import "github.com/jinzhu/gorm"
+import (
+	"time"
+)
 
 // Account represents an persist entity.
 type Account struct {
-	gorm.Model
-	DocumentNumber string `gorm:"column:document_number" json:"document_number"`
+	ID             uint       `gorm:"primary_key" json:"id"`
+	CreatedAt      time.Time  `json:"-"`
+	UpdatedAt      time.Time  `json:"-"`
+	DeletedAt      *time.Time `json:"-"`
+	DocumentNumber string     `gorm:"column:document_number" json:"document_number"`
 }

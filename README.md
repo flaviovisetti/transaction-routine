@@ -23,7 +23,7 @@ docker-compose build
 Comando cria o banco de dados utilizado no ambiente de desenvolvimento e teste
 
 ```bash
-docker-compose run --rm api sh script/create_database.sh
+docker-compose run --rm api ./scripts/create_database.sh
 ```
 
 ## Ambiente de desenvolvimento
@@ -53,7 +53,7 @@ docker-compose up -d
 Comando executa o arquivo de **seeds**. Para isso acontecer a aplicação precisar estar sendo executada.
 
 ```bash
-docker-compose run --rm api sh script/seeds.sh
+docker-compose run --rm api ./scripts/seeds.sh
 ```
 
 ## Logs

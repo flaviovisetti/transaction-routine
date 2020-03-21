@@ -16,4 +16,4 @@ services:
     depends_on: 
       - db
     environment:
-      - POSTGRESQL_URL=postgres://postgres@db:5432/transaction_routiune?sslmode=disable
+      - POSTGRESQL_URL=postgres://postgres@db:5432/transaction_routine?sslmode=disable
