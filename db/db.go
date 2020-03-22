@@ -1,7 +1,6 @@
 package db
 
 import (
-	"database/sql"
 	"os"
 
 	"github.com/jinzhu/gorm"
@@ -9,18 +8,6 @@ import (
 
 // DBCon it is a pointer to gorm.DB
 var DBCon *gorm.DB
-
-// GetConnection Create a connection with database
-func GetConnection() *sql.DB {
-	connStr := os.Getenv("POSTGRESQL_URL")
-	dbase, err := sql.Open("postgres", connStr)
-
-	if err != nil {
-		panic(err.Error())
-	}
-
-	return dbase
-}
 
 // InitDB start connection with database
 func InitDB() {
